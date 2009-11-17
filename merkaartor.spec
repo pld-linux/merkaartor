@@ -15,6 +15,7 @@ BuildRequires:	QtScript-devel
 BuildRequires:	QtSvg-devel
 BuildRequires:	QtWebKit-devel
 BuildRequires:	QtXml-devel
+BuildRequires:	qt4-build
 BuildRequires:	qt4-linguist
 BuildRequires:	qt4-qmake
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -26,17 +27,6 @@ data.
 
 %prep
 %setup -q
-#%setup -q -c -T
-#%setup -q -n %{name}
-#%setup -q -n %{name}-%{version}.orig -a 1
-#%patch0 -p1
-
-# undos the source
-#find '(' -name '*.php' -o -name '*.inc' ')' -print0 | xargs -0 %{__sed} -i -e 's,\r$,,'
-
-# remove CVS control files
-#find -name CVS -print0 | xargs -0 rm -rf
-
 # you'll need this if you cp -a complete dir in source
 # cleanup backups after patching
 find '(' -name '*~' -o -name '*.orig' ')' -print0 | xargs -0 -r -l512 rm -f
